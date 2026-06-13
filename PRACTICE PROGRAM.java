@@ -197,3 +197,64 @@ public class Main {
         System.out.println(count);
     }
 }
+////DAY 05:
+////1. WORD FREQUENCY PROBLEM
+import java.util.*;
+public class Homework {
+   public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();   
+        String[] arr = new String[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.next();
+        }
+        HashMap<String,Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            if (map.containsKey(arr[i])) {
+                map.put(arr[i],map.get(arr[i])+1);
+            } else {
+                map.put(arr[i], 1);
+            }
+          }
+          for (String key : map.keySet()) {
+              System.out.println(key+" "+map.get(key));
+          }
+      }
+}
+
+//OUTPUT:
+//6
+//apple mango apple orange mango apple
+//apple 3
+//mango 2
+//orange 1
+
+////2. FIRST NON REPEATING CHARACTER
+
+import java.util.*;
+public class Homework {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (map.containsKey(ch))
+                map.put(ch, map.get(ch) + 1);
+            else
+                map.put(ch, 1);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+        if (map.get(ch) == 1) {
+              System.out.println(ch);
+              return;
+           }
+      }
+      System.out.println("No non-repeating character");
+    }
+}
+////OUTPUT:
+//AABBCDE
+//C
